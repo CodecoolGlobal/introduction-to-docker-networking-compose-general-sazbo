@@ -8,8 +8,7 @@ services:
 
   app:
     build: ./app
-    ports:
-     - 80:80
+    network_mode: host 
 
   client:
    image: alpine
@@ -37,4 +36,3 @@ services:
 networks:
   vipclients:
     driver: bridge
-    

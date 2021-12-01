@@ -7,9 +7,8 @@ services:
     command: tail -f /dev/null
 
   app:
-    build: ./app
-    ports:
-     - 80:80
+    image: 003235076673.dkr.ecr.eu-west-3.amazonaws.com/flasktask:latest
+    network_mode: host 
 
   client:
    image: alpine
@@ -37,4 +36,3 @@ services:
 networks:
   vipclients:
     driver: bridge
-    

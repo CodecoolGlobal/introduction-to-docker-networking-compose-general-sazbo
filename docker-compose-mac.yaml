@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  secret:
+    build: ./secret
+    network_mode: none
+    command: tail -f /dev/null
+
+  app:
+    build: ./app
+    ports:
+     - 80:80
+     
+  client:
+   image: alpine
+   command: tail -f /dev/null
+
+
+  client2:
+   image: alpine
+   command: tail -f /dev/null
+
+  
+  vipclient:
+   image: alpine
+   networks:
+    - vipclients
+   command: tail -f /dev/null
+
+  
+  vipclient2:
+   image: alpine
+   networks:
+    - vipclients
+   command: tail -f /dev/null
+
+networks:
+  vipclients:
+    driver: bridge
